@@ -12,6 +12,6 @@ This is a simple example of how to set up Apollo GraphQl in a Nuxt application.
 npm run dev
 ```
 
-link to demo page http://localhost:3000
+Link to demo page http://localhost:3000
 
 Link to GraphQL UI http://localhost:3000/graphql
