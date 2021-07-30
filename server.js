@@ -4,14 +4,17 @@ const cors = require('cors');
 
 const users = [
   {
+    id: 1,
     name: 'Bob',
     age: 32,
   },
   {
+    id: 2,
     name: 'Alice',
     age: 28,
   },
   {
+    id: 3,
     name: 'Chuck',
     age: 28,
   },
@@ -21,6 +24,7 @@ async function startApolloServer() {
   // Construct a schema, using GraphQL schema language
   const typeDefs = gql`
     type User {
+      id: Int
       name: String
       age: Int
     }

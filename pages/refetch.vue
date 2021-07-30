@@ -1,25 +1,28 @@
 <template>
   <section>
-    <h1>List users</h1>
-
-    <!-- Filter by ... -->
-    <button @click="onClick">Filter by age "28"</button>
-
-    <!-- Show error -->
-    <div v-if="error">{{ error }}</div>
-
-    <!-- Show content -->
-    <div v-else>
-      <p v-if="loading">Loading...</p>
-      <ul v-else>
-        <li v-for="(user, i) in users" :key="i">
-          NAME: {{ user.name }} <br>
-          AGE: {{ user.age }} <br><br>
-        </li>
-      </ul>
+    <div id="app">
+      <table>
+        <thead>
+          <tr>
+            <th >ID</th>
+            <th >Name</th>
+            <th >Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(user, key) in users" :key="key">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.age }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+    <button @click="onClick">Filter by age = "28"</button>
+    <button @click="reset">Reset</button>
   </section>
 </template>
+
 
 <script>
 import {
@@ -41,11 +44,16 @@ export default defineComponent({
       refetch({ age: 28 });
     }
 
+    function reset() {
+      refetch({ age: null });
+    }
+
     return {
       users,
       loading,
       error,
-      onClick
+      onClick,
+      reset
     };
   }
 })

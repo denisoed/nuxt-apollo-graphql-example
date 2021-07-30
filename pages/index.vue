@@ -1,20 +1,24 @@
 <template>
   <section>
-    <h1>List users</h1>
-
-    <!-- Show error -->
-    <div v-if="error">{{ error }}</div>
-
-    <!-- Show content -->
-    <div v-else>
-      <p v-if="loading">Loading...</p>
-      <ul v-else>
-        <li v-for="(user, i) in users" :key="i">
-          NAME: {{ user.name }} <br>
-          AGE: {{ user.age }} <br><br>
-        </li>
-      </ul>
+    <div id="app">
+      <table>
+        <thead>
+          <tr>
+            <th >ID</th>
+            <th >Name</th>
+            <th >Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(user, key) in users" :key="key">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.age }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+    <p>The data is loaded before the page is rendered</p>
   </section>
 </template>
 
