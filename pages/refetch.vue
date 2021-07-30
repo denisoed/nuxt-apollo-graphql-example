@@ -2,6 +2,9 @@
   <section>
     <h1>List users</h1>
 
+    <!-- Filter by ... -->
+    <button @click="onClick">Filter by age "28"</button>
+
     <!-- Show error -->
     <div v-if="error">{{ error }}</div>
 
@@ -28,15 +31,21 @@ import { GET_USERS } from '@/graphql/types';
 export default defineComponent({
   setup() {
     // ------- Get all users -------- //
-    const { result, loading, error } = useQuery(GET_USERS);
+    const { result, loading, error, refetch } = useQuery(GET_USERS);
 
     // -------- Computeds -------- //
     const users = useResult(result, null, data => data.users);
 
+    // --------- methods -------- //
+    function onClick() {
+      refetch({ age: 28 });
+    }
+
     return {
       users,
       loading,
-      error
+      error,
+      onClick
     };
   }
 })

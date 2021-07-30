@@ -22,6 +22,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/apollo-client.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -33,9 +34,24 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/apollo',
+    '@nuxtjs/composition-api/module'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: [
+      '@vue/apollo-composable'
+    ]
+  },
+
+  apollo: {
+    clientConfigs: {
+      default: '~/graphql'
+    }
+  },
+
+  env: {
+    nuxtApiUrl: 'http://localhost:4000/graphql' // Please, set env vars from .env file for production
   }
 }

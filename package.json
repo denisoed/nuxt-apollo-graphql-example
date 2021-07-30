@@ -6,11 +6,17 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
+    "server": "cd server && npm start",
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/apollo": "^4.0.1-rc.5",
+    "@nuxtjs/composition-api": "^0.25.1",
+    "@vue/apollo-composable": "^4.0.0-alpha.14",
+    "apollo-server-express": "^2.25.2",
     "core-js": "^3.15.1",
+    "graphql": "^15.5.1",
+    "graphql-tag": "^2.12.5",
     "nuxt": "^2.15.7"
-  },
-  "devDependencies": {}
+  }
 }
