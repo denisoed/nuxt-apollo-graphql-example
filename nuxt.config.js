@@ -16,6 +16,11 @@ export default {
     ]
   },
 
+  /*
+   ** Server middlewares
+   */
+  serverMiddleware: [{ path: '/', handler: '~/server/index.js' }],
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],
@@ -52,6 +57,6 @@ export default {
   },
 
   env: {
-    nuxtApiUrl: 'http://localhost:4000/graphql' // Please, set env vars from .env file for production
+    nuxtApiUrl: process.env.NUXT_API_URL + '/graphql'
   }
 }
